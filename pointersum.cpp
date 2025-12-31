@@ -11,7 +11,7 @@ int main()
     int a[]={2,11,15,5,7};
     int n=sizeof(a)/4;
     sort(a,a+n);
-    int val=18,i=0,j=n-1;
+    int val=20,i=0,j=n-1;
     while(i<j)
     {
         if(sum(a[i],a[j])==val)
