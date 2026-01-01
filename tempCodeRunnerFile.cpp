@@ -1,11 +1,4 @@
-
-            if(head==nullptr)
+if(count==1)
             {
-                head=tail=newNode;
-                tail->next=head;
+                cout<<arr[i]<<endl;
             }
-            else
-            {
-                tail->next=newNode;
-                tail=newNode;
-                tail->next=head;
