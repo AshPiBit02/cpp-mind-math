@@ -18,4 +18,4 @@ int main()
     maxSum=max(maxSum,currentSum);
     cout<<maxSum<<endl;
     return 0;
-}
+} // End of main: computes and prints the maximum sum of any contiguous subarray of size k using an O(n) sliding-window approach
