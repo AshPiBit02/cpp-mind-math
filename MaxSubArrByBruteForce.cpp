@@ -1,4 +1,4 @@
-//This program find the maximun subarray by brute force with slightly optimization
+//This program find the maximun subarray sum by brute force with slightly optimization
 #include<iostream>
 // #include<vector>
 using namespace std;
@@ -16,6 +16,6 @@ int main()
             maxsum=max(currentsum,maxsum);
         }
     }
-    cout<<"The maximum sum of the subarray is "<<maxsum<<endl;
+    cout<<"The maximum sum of the subarray sum is "<<maxsum<<endl;
     return 0;
 }
