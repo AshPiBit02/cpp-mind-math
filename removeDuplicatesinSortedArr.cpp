@@ -1,4 +1,4 @@
-//This program remove the redundent element of the sorted array
+//This program eleminate the redundent element of the sorted array
 #include<iostream>
 using namespace std;
 int main()

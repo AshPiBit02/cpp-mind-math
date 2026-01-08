@@ -9,7 +9,5 @@ int main()
     b=a^b; //5^2^2=5
     a=a^b; //5^2^5=2
     cout<<"After swapping a = "<<a<<" & b = "<<b<<endl;
-    int x=(10,20,3);
-    cout<<x<<endl;
     return 0;
 }
