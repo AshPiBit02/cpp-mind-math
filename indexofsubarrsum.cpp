@@ -3,6 +3,7 @@
 using namespace std;
 void subarray(int* arr,int n,int target)
 {
+    bool found=false;
     int subarr_sum=0,i=0,j=0;
     for(j=0;j<n;j++)
     {
@@ -14,11 +15,13 @@ void subarray(int* arr,int n,int target)
         if(subarr_sum==target)
         {
             cout<<"Subarray sum exists from index "<<i<<" to "<<j<<endl;
-            return;
+            found=true;
         }
     }
+    if(!found)
+    {
     cout<<"Subarray sum doesn't exists!"<<endl;
-    
+    }
 }
 int main()
 {
