@@ -1,8 +1,5 @@
-r(int i=0;i<str1.size();i++)
-    // {
-    //     if(str1[i]==str2[j])
-    //     {
-    //         j++;
-    //         count++;
-    //     }
-    // }
+
+    while(start<=end)
+    {
+        int mid=start+(end-start)/2;
+        if(isValid(arr,n,m,mid))

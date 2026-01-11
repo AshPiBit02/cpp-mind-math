@@ -14,14 +14,14 @@ int count_subarr(vector<int>&arr,int target)
         prefixsum[i]=prefixsum[i-1]+arr[i];
     }
     unordered_map<int,int>m; //stores prefixsum with its frequency
-    for(int j=0;j<n;j++)
+    for(int j=0;j<n;j++) 
     {
         if(prefixsum[j]==target)
         {
             count++;
         }
         int val=prefixsum[j]-target;
-        if(m.find(val)!=m.end())
+        if(m.find(val)!=m.end())//m.find() returns m.end if key is not present
         {
             count+=m[val];
         }

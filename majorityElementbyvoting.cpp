@@ -21,7 +21,7 @@ int main()
         }
         else
         {
-            voteCount--;
+            voteCount--; 
         }
     }
     cout<<"Majority Element: "<<majorityEle<<endl;

@@ -18,7 +18,6 @@ int main()
     cout<<bintodec(11111)<<endl;
     cout<<bintodec(10010)<<endl;
     cout<<bintodec(10101010)<<endl;
-    cout<<1!<<endl;
     return 0;
 
 }
