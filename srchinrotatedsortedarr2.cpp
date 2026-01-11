@@ -14,7 +14,7 @@ int BinSrchRotSorArr(int* arr,int start,int end,int target)
         {
             if(arr[start]<=target && arr[mid]>=target)
             {
-                end=mid;
+                end=mid-1;
             }
             else
             {
@@ -28,7 +28,7 @@ int BinSrchRotSorArr(int* arr,int start,int end,int target)
             }
             else
             {
-                end=mid;
+                end=mid-1;
             }
         }
     }
