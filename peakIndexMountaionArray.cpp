@@ -45,7 +45,7 @@ int BinSrchForpeakIndex(int* arr,int n,int start,int end)
     // Recursively search in left half
     else
     {
-        return BinSrchForpeakIndex(arr,n,start,mid);
+        return BinSrchForpeakIndex(arr,n,start,mid-1);
     }
 }
 int main()
