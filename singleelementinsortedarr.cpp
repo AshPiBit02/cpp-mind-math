@@ -6,6 +6,8 @@ int BinSingEle(int* arr,int start,int end)
     while(start<=end)
     {
         int mid=start+(end-start)/2;
+        if(mid==start && arr[start]!=arr[start+1]) return start;//left corner case
+        if(mid==end && arr[end]!=arr[end-1]) return end;//right corner case;
         if(arr[mid]!=arr[mid-1] && arr[mid]!=arr[mid+1])// if the mid element doesn't equal to its adjecent element then it is unique 
         {
             return mid;
@@ -42,8 +44,8 @@ int BinSingEle(int* arr,int start,int end)
 }
 int main()
 {
-    int arr[]={1,1,2,3,3,4,4,9,9};
+    int arr[]={1,1,2,2,3,3,4,4,9};
     int n=sizeof(arr)/sizeof(arr[0]);
     cout<<"The element is at index: "<<BinSingEle(arr,0,n-1);
-
+    return 0;
 }
