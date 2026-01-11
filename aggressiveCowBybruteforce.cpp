@@ -2,9 +2,6 @@
 using namespace std;
 int main()
 {
-    cout<<("12345"+1)<<endl;
-    cout<<1+"1"<<endl;
-    cout<<1+1+"1"<<endl;
-    cout<<"1"+1+1<<endl;
+    //Learing
     return 0;
 }

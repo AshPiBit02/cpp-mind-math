@@ -1,10 +1,9 @@
 //This program find the largest and second largest element of an array without sorting
 #include<iostream>
-using namespace std;
-int main()
+#include<vector>
+int result(vector<int>&arr)
 {
-    int arr[]={8,31,12,63,-45,25,2,49};
-    int n=sizeof(arr)/sizeof(arr[0]);
+    int n=arr.size();
     int fLarge=0,sLarge=0;
     for(int i=0;i<n;i++)
     {
@@ -19,5 +18,11 @@ int main()
         }
     }
     cout<<"The Largest and second Largest elements are: "<<fLarge<<" & "<<sLarge<<endl;
+}
+using namespace std;
+int main()
+{
+    vector<int>arr={8,31,12,63,-45,25,2,49};
+    result(arr);
     return 0;
 }
