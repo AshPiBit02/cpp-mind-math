@@ -26,15 +26,16 @@ int main()
             cout<<" 0 ";
             count_0--;
         }
-        if(count_0==0 && count_1>0)
+        else if(count_0==0 && count_1>0)
         {
             cout<<" 1 ";
             count_1--; 
         }
-        if(count_0==0 && count_1==0 && count_2>0)
+        else
         {
             cout<<" 2 ";
             count_2--;
         }
     }
+    return 0;
 }
