@@ -5,19 +5,31 @@
 using namespace std;
 void nextpermutation(vector<int>&arr)
 {
-    int n=arr.size()-1;
-    int pivot=n;
-    do{
-        pivot--;
-        if(arr[pivot]<arr[n])
+    int n=arr.size();
+    int pivot=-1;
+    for(int i=n-2;i>=0;i--)//runs from second last element
+    {
+        if(arr[i]<arr[i+1])
         {
-            n=-1;
+            pivot=i;
+            break;
         }
-        n--;
+    }
+    if(pivot==-1)//if pivot is not found
+    {
+        reverse(arr.begin(),arr.end());
+        return;
+    }
+    for(int i=n-1;i>pivot;i--)//find the smallest element greater than pivot
+    {
+        if(arr[i]>arr[pivot])
+        {
+            swap(arr[i],arr[pivot]);
+            break;
+        }
+    }
+    reverse(arr.begin()+pivot+1,arr.end());
 
-    }while(n>=0);
-    swap(arr[pivot],arr[arr.size()-1]);
-    reverse(arr.begin()+3,arr.end());
 }
 int main()
 {
