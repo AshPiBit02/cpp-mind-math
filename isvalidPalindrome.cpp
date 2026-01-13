@@ -14,9 +14,9 @@ bool isAlnum(char ch)
 int Isvalidpalindrome(string &str)
 {
     int start=0,end=str.size()-1;
-    while(start<end && true)
+    while(start<end)
     {
-        if(isAlnum(str[start]) && isalnum(str[end]))//if both are alpha numeric
+        if(isAlnum(str[start]) && isAlnum(str[end]))//if both are alpha numeric
         {
             return tolower(str[start++])==tolower(str[end--]);//assume that both lower and upper case are sameg
         }
@@ -28,6 +28,7 @@ int Isvalidpalindrome(string &str)
             end--; 
         }
     }
+    return 0;
 }
 int main()
 {
