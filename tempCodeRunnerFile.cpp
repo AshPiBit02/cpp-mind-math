@@ -1,5 +1,4 @@
 
+    int start=0,end=sum,ans=-1;
     while(start<=end)
     {
-        int mid=start+(end-start)/2;
-        if(isValid(arr,n,m,mid))
