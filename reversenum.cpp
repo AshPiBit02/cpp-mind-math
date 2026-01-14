@@ -8,7 +8,7 @@ int revnum(int num)
     {
         int digit=num%10;
         if(rnum*10>INT_MAX || rnum<INT_MIN/10)//handles range if the reverse number is going to exceed or cross the min int value
-        
+
         {
             return 0;
         }
@@ -20,4 +20,5 @@ int revnum(int num)
 int main()
 {
     cout<<revnum(1376)<<endl;
+    return 0;
 }

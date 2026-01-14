@@ -20,5 +20,6 @@ int main()
         }
     }
     cout<<"The number of valid split is "<<count<<endl;
+    return 0;
 
 }

@@ -13,7 +13,7 @@ void previousPermutation(vector<int>&arr)
             break;
         }
     }
-    if(pivot==-1)
+    if(pivot==-1)//smallest possible permutation changed to largest possible permutation
     {
         reverse(arr.begin(),arr.end());
         return;

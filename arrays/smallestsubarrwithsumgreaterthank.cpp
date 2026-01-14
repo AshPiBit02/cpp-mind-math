@@ -1,4 +1,5 @@
 //Smallest subarray with sum greater than k
+//
 #include<iostream>
 #include<vector>
 using namespace std;

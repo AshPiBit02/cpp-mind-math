@@ -41,7 +41,7 @@ bool checkInclusion(string str1,string str2)
 }
 int main()
 {
-    string str1="aoe";
+    string str1="ab";
     string str2="edibaooo";
     if(checkInclusion(str1,str2))
     {
