@@ -8,16 +8,10 @@ int dia_sum(const vector<vector<int>>&mat,int rows,int cols)
     int secondarydiagonal_sum=0;//right to left diagonal
     for(int i=0;i<rows;i++)
     {
-        for(int j=0;j<cols;j++)
+        primarydiagonal_sum+=mat[i][i];
+        if(i!=rows-i-1)
         {
-            if(i==j)
-            {
-                primarydiagonal_sum+=mat[i][j];
-            }
-            else if(i==rows-1-j)
-            {
-                secondarydiagonal_sum+=mat[i][j];
-            }
+            secondarydiagonal_sum+=mat[i][rows-i-1];
         }
     }
     return primarydiagonal_sum+secondarydiagonal_sum;
