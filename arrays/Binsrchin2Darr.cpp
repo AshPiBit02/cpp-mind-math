@@ -2,7 +2,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-bool BinSrchII(vector<vector<int>>&mat,int target)//not exact binary search but
+bool BinSrchII(vector<vector<int>>&mat,int target)//not exact binary search. Inspired by binaray search
 {
     int col=mat[0].size();
     int row=mat.size();
