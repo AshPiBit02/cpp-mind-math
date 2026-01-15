@@ -20,7 +20,7 @@ int finduplicate(const vector<int>&arr)
 }
 int main()
 {
-    vector<int>arr={2,4,3,1,5,4};
+    vector<int>arr={2,4,3,1,5,4};//value elements in the array must be less than the size of array
     cout<<"Duplicate : "<<finduplicate(arr);
     return 0;
 }
