@@ -9,12 +9,17 @@ int count_pair_diff_k(vector<int>&arr,int k)
     unordered_map<int,int>mp;
     for(auto &a: arr)
     {
-        if(mp.find(a-k)!=mp.end() || mp.find(a+k)!=mp.end())
+        if(mp.find(a-k)!=mp.end())
         {
-            count++;
+            count+=mp[a-k];//add frequency of (a-k)
         }
-        mp[a];
+        if(mp.find(a+k)!=mp.end())
+        {
+            count+=mp[a+k];//add frequency of (a+k)
+        }
+        mp[a]++;//increment frequency of a
     }
+        
     return count;
 }
 int main()
