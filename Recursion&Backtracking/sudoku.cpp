@@ -83,15 +83,18 @@ int main()
     {'.','.','.','.','8','.','.','7','9'}
 };
     if(sudoku_solver(sudoku)){
-
-        for (int i = 0; i < 9; i++)
+        for (int i=0;i<9;i++)
         {
-            for (int j = 0; j < 9; j++)
+            for(int j=0;j<9;j++)
             {
                 cout << sudoku[i][j] << " ";
             }
             cout << endl;
         }
+    }
+    else
+    {
+        cout<<"No solution exists";
     }
     return 0;
 }
