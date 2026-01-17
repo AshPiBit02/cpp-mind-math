@@ -27,15 +27,15 @@ vector<vector<int>> combiWithSum(vector<int>&arr,int target)
 }
 int main()
 {
-    vector<int>arr={2,3,5};
+    vector<int>arr={1,3,5};
     int target=8;
     auto res=combiWithSum(arr,target);
     cout<<"The combination with sum "<<target<<" are :"<<endl;
-    for(int i=0;i<res.size();i++)
+    for(auto i:res)
     {
-        for(int j=0;j<res[i].size();j++)
+        for(auto j: i)
         {
-            cout<<res[i][j]<<" ";
+            cout<<j<<" ";
         }
         cout<<endl;
     }
