@@ -15,15 +15,6 @@ void helper(vector<vector<int>>&mat,int r,int c,string path,vector<string>&ans)
         return;
     }
     mat[r][c]=-1;//mark the current position as true(i.e. visited)
-    cout<<endl<<"Traversing for path:"<<endl;
-    for(int i=0;i<n;i++)//print the current path
-    {
-        for(int j=0;j<n;j++)
-        {
-            cout<<mat[i][j]<<"   ";
-        }
-        cout<<endl;
-    }
     helper(mat,r-1,c,path+" U ",ans);//goes down for path if possible then goes else return
     helper(mat,r+1,c,path+" D ",ans);//goes upward for path if possible then goes else return
     helper(mat,r,c+1,path+" R ",ans);//goes right for path if possible then goes else return
@@ -40,7 +31,7 @@ vector<string> findpath(vector<vector<int>>&mat)
 }
 int main()
 {
-    vector<vector<int>>mat={{1,0,0,0},{1,1,0,1},{1,1,0,0},{0,1,1,1}};//1 means path is possible and 0 means not possible
+    vector<vector<int>>mat={{1,1,0,0},{1,1,0,1},{1,1,0,0},{0,1,1,1}};//1 means path is possible and 0 means not possible
     auto res=findpath(mat);//auto automatically deduce the type of a variable from the value used to initialize it.
     cout<<"The possible paths are: "<<endl;
     for(auto i:res)//auto automatically deduce the type of a variable from the value used to initialize it.
