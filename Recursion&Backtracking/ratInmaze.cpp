@@ -2,10 +2,10 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-void helper(vector<vector<int>>&mat,int r,int c,string path,vector<string>&ans,vector<vector<bool>>&visited)
+void helper(vector<vector<int>>&mat,int r,int c,string path,vector<string>&ans)
 {
     int n=mat.size();
-    if(r<0 || c<0 || r>=n || c>=n || mat[r][c]==0 || visited[r][c]==true)//if no path or already visited then
+    if(r<0 || c<0 || r>=n || c>=n || mat[r][c]==0 || mat[r][c]==-1)//if no path or already visited
     {
         return;
     }
@@ -14,20 +14,19 @@ void helper(vector<vector<int>>&mat,int r,int c,string path,vector<string>&ans,v
         ans.push_back(path);
         return;
     }
-    visited[r][c]=true;//mark the current position as true(i.e. visited)
-    helper(mat,r-1,c,path+" U ",ans,visited);//goes down for path if possible then goes else return
-    helper(mat,r+1,c,path+" D ",ans,visited);//goes upward for path if possible then goes else return
-    helper(mat,r,c+1,path+" R ",ans,visited);//goes right for path if possible then goes else return
-    helper(mat,r,c-1,path+" L ",ans,visited);//goes left for path if possible then goes else return
-    visited[r][c]=false;//mark unvisited for other path(backtracking)
+    mat[r][c]=-1;//mark the current position as true(i.e. visited)
+    helper(mat,r-1,c,path+" U ",ans);//goes down for path if possible then goes else return
+    helper(mat,r+1,c,path+" D ",ans);//goes upward for path if possible then goes else return
+    helper(mat,r,c+1,path+" R ",ans);//goes right for path if possible then goes else return
+    helper(mat,r,c-1,path+" L ",ans);//goes left for path if possible then goes else return
+    mat[r][c]=1;//mark unvisited for other path(backtracking)
 }
 vector<string> findpath(vector<vector<int>>&mat)
 {
     int n=mat.size();
     vector<string>ans;
     string path="";
-    vector<vector<bool>>visited(n,vector<bool>(n,false));//keep track of previous position to ensure no loop formation
-    helper(mat,0,0,path,ans,visited);
+    helper(mat,0,0,path,ans);
     return ans;
 }
 int main()
