@@ -27,7 +27,7 @@ int main()
 {
     vector<int>arr={1,2,3};
     vector<vector<int>>res=permute(arr);
-    cout<<"The permulations are: "<<endl;
+    cout<<"The permutations are: "<<endl;
     for(int i=0;i<res.size();i++)
     {
         for(int j=0;j<res[i].size();j++)
@@ -36,4 +36,5 @@ int main()
         }
         cout<<endl;
     }
+    return 0;
 }
