@@ -2,30 +2,34 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-bool isvalid(vector<vector<int>>&gird,int row,int col,int n,int expectedVal)
+bool isvalid(vector<vector<int>>&grid,int row,int col,int n,int expectedVal)
 {
-    if(row<0 || col<0 || row>=n || col>=n || (gird[row][col]!=expectedVal))
+    if(row<0 || col<0 || row>=n || col>=n || (grid[row][col]!=expectedVal))//out of bound
     {
         return false;
     }
-    if(gird[row][col]==(n*n)-1)//
+    if(grid[row][col]==n*n-1)//last cell(base case)
     {
         return true;
     }
-    // Try all 8 possible knight moves
-    int ans1=isvalid(gird,row-2,col-1,n,expectedVal+1);
-    int ans2=isvalid(gird,row-2,col+1,n,expectedVal+1);
-    int ans3=isvalid(gird,row-1,col+2,n,expectedVal+1);
-    int ans4=isvalid(gird,row+1,col+2,n,expectedVal+1);
-    int ans5=isvalid(gird,row+2,col+1,n,expectedVal+1);
-    int ans6=isvalid(gird,row+2,col-1,n,expectedVal+1);
-    int ans7=isvalid(gird,row+1,col-2,n,expectedVal+1);
-    int ans8=isvalid(gird,row-1,col-2,n,expectedVal+1);
-    return ans1||ans2||ans3||ans4||ans5||ans6||ans7||ans8;
+    //all 8 possible knight moves
+    int dx[] = {-2,-2,-1,1,2,2,1,-1};
+    int dy[] = {-1,1,2,2,1,-1,-2,-2};
+    // Try all 8 moves
+    for (int i = 0; i < 8; i++)
+    {
+        int newRow = row + dx[i];
+        int newCol = col + dy[i];
+        if (isvalid(grid, newRow, newCol, n, expectedVal + 1))
+        {
+            return true;
+        }
+    }
+    return false;
 }
 bool isKnightTourValid(vector<vector<int>>&grid)
 {
-    return isvalid(grid,0,0,grid.size(),1);
+    return isvalid(grid,0,0,grid.size(),0);
 } 
 int main()
 {
