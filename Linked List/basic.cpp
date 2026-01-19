@@ -50,7 +50,7 @@ class linkedList
         {
             tail->next=newNode;
             tail=newNode;
-            tail->next=nullptr;
+            tail->next=head;
         }
         cout<<data<<" Pushed to back"<<endl;
         llsize++;
@@ -187,6 +187,25 @@ class linkedList
         cout<<slow->data<<" is in the middle of linked list"<<endl;
 
     }
+    bool hascycle()
+    {
+        if(isempty())
+        {
+            cout<<"Not possible"<<endl;
+            return false;
+        }
+        Node*slow=head,*fast=head;
+        while(fast!=nullptr && fast->next!=nullptr)
+        {
+            slow=slow->next;
+            fast=fast->next->next;
+            if(slow==fast)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
     void traverseList()
     {
@@ -213,8 +232,9 @@ int main()
     ll.push_front(50);
     ll.push_back(20);
     ll.push_back(10);
-    ll.traverseList();
-    ll.middleofLl();
+    // ll.traverseList();
+    // ll.middleofLl();
+    cout<<"Is cycle: "<<(ll.hascycle()?"True":"false");
     // ll.insertAt(60,5);
     // ll.traverseList();
     // ll.pop_back();
@@ -224,7 +244,7 @@ int main()
     // ll.pop_back();
     // ll.search(40);
     // ll.search(70);
-    ll.reverseLL();
-    ll.traverseList();
+    // ll.reverseLL();
+    // ll.traverseList();
     return 0;
 }
