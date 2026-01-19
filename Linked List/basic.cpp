@@ -125,6 +125,26 @@ class linkedList
         cout<<data<<" inserted at position "<<pos<<endl;
         llsize++;
     }
+    void reverseLL()
+    {
+        if(isempty() || head==tail)
+        {
+            return;
+        }
+        Node *prev=nullptr;
+        Node *current=head;
+        Node *next=nullptr;
+        tail=head;//head becomes tail
+        while(current!=nullptr)
+        {
+            next=current->next;
+            current->next=prev;
+            prev=current;
+            current=next;
+        }
+        head=prev;//prev becomes head(i.e. tail now becomes head)
+        cout<<"Linked list reversed"<<endl;
+    }
     void search(int data)
     {
         if(isempty())
@@ -134,7 +154,7 @@ class linkedList
         }
         int pos=1;
         Node* temp=head;
-        while(pos<=llsize)
+        while(temp!=nullptr)
         {
             if(temp->data==data)
             {
@@ -173,14 +193,16 @@ int main()
     ll.push_back(20);
     ll.push_back(10);
     ll.traverseList();
-    ll.insertAt(60,5);
+    // ll.insertAt(60,5);
+    // ll.traverseList();
+    // ll.pop_back();
+    // ll.traverseList();
+    // ll.pop_front();
+    // ll.traverseList();
+    // ll.pop_back();
+    // ll.search(40);
+    // ll.search(70);
+    ll.reverseLL();
     ll.traverseList();
-    ll.pop_back();
-    ll.traverseList();
-    ll.pop_front();
-    ll.traverseList();
-    ll.pop_back();
-    ll.search(40);
-    ll.search(70);
     return 0;
 }
