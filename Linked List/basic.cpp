@@ -125,6 +125,27 @@ class linkedList
         cout<<data<<" inserted at position "<<pos<<endl;
         llsize++;
     }
+    void search(int data)
+    {
+        if(isempty())
+        {
+            cout<<data<<" doesn't exists!"<<endl;
+            return;
+        }
+        int pos=1;
+        Node* temp=head;
+        while(pos<=llsize)
+        {
+            if(temp->data==data)
+            {
+                cout<<data<<" found at position "<<pos<<endl;
+                return;
+            }
+            temp=temp->next;
+            pos++;
+        }
+        cout<<data<<" not found!"<<endl;
+    }
 
     void traverseList()
     {
@@ -159,6 +180,7 @@ int main()
     ll.pop_front();
     ll.traverseList();
     ll.pop_back();
-    cout<<ll.isempty();
+    ll.search(40);
+    ll.search(70);
     return 0;
 }
