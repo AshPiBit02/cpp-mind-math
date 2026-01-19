@@ -15,6 +15,7 @@ class linkedList
 {
     public:
     Node* head,*tail;
+    int llsize=0;
     linkedList()
     {
         head=tail=nullptr;
@@ -36,6 +37,7 @@ class linkedList
             head=newNode;
         }
         cout<<data<<" Pushed to front"<<endl;
+        llsize++;
     }
     void push_back(int data)
     {
@@ -51,6 +53,7 @@ class linkedList
             tail->next=nullptr;
         }
         cout<<data<<" Pushed to back"<<endl;
+        llsize++;
     }
     void pop_front()
     {
@@ -63,11 +66,13 @@ class linkedList
         {
             delete head;
             head=tail=nullptr;
-            return ;
+        }else
+        {
+            Node* temp=head;
+            head=temp->next;
+            delete temp;
         }
-        Node* temp=head;
-        head=temp->next;
-        delete temp;
+        llsize--;
     }
     void pop_back()
     {
@@ -80,17 +85,47 @@ class linkedList
         {
             delete head;
             head=tail=nullptr;
+        }else
+        {
+            Node* temp=head;
+            while(temp->next!=tail)
+            {
+                temp=temp->next;
+            }
+            delete tail;
+            tail=temp;
+            tail->next=nullptr;
+        }
+        llsize--;
+    }
+    void insertAt(int data, int pos)
+    {
+        if(pos>llsize+1 || pos<1)
+        {
+            cout<<"Position out of bound!"<<endl;
             return;
         }
-        Node* temp=head;
-        while(temp->next!=tail)
+        if(pos==1)
         {
-            temp=temp->next;
+            push_front(data);
+            return;
+        }else if(pos==llsize+1)
+        {
+            push_back(data);
+            return;
         }
-        delete tail;
-        tail=temp;
-        tail->next=nullptr;
+        Node* newNode=new Node(data);
+            Node* temp=head;
+            for(int i=1;i<pos-1;i++)
+            {
+                temp=temp->next;
+            }
+            newNode->next=temp->next;
+            temp->next=newNode;
+        cout<<data<<" inserted at position "<<pos<<endl;
+        llsize++;
     }
+
     void traverseList()
     {
         if(isempty())
@@ -116,6 +151,8 @@ int main()
     ll.push_front(50);
     ll.push_back(20);
     ll.push_back(10);
+    ll.traverseList();
+    ll.insertAt(60,5);
     ll.traverseList();
     ll.pop_back();
     ll.traverseList();
