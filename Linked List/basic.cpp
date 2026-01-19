@@ -166,6 +166,27 @@ class linkedList
         }
         cout<<data<<" not found!"<<endl;
     }
+    void middleofLl()
+    {
+        if(isempty())
+        {
+            cout<<"No middle"<<endl;
+            return;
+        }
+        if(head==tail)
+        {
+            cout<<head->data<<" is only element in the linked list";
+            return;
+        }
+        Node* slow=head,*fast=head;
+        while(fast!=nullptr && fast->next!=nullptr)
+        {
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        cout<<slow->data<<" is in the middle of linked list"<<endl;
+
+    }
 
     void traverseList()
     {
@@ -193,6 +214,7 @@ int main()
     ll.push_back(20);
     ll.push_back(10);
     ll.traverseList();
+    ll.middleofLl();
     // ll.insertAt(60,5);
     // ll.traverseList();
     // ll.pop_back();
