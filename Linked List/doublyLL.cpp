@@ -98,6 +98,38 @@ class DLL
         cout<<temp->data<<" poped from tail"<<endl;
         delete temp;
     }
+    void traverseListF()
+    {
+        if(isempty())
+        {
+            cout<<"List is emtpy"<<endl;
+            return;
+        }
+        Node* temp=head;
+        cout<<"\nNULL";
+        while(temp!=nullptr)
+        {
+            cout<<"temp->data"<<" <-> ";
+            temp=temp->next;
+        }
+        cout<<"NULL"<<endl;
+    }
+    void traverseListB()
+    {
+        if(isempty())
+        {
+            cout<<"List is empty"<<endl;
+            return;
+        }
+        Node* temp=tail;
+        cout<<"\nNULL";
+        while(temp!=nullptr)
+        {
+            cout<<temp->data<<" <-> ";
+            temp=temp->prev;
+        }
+        cout<<"NULL"<<endl;
+    }
 
 };
 int main()
