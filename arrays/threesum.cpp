@@ -1,4 +1,4 @@
-//find three element whose sum is equal to zero. Note x!=y!=z they are different from eachother(x+y+z=0)
+//find three element whose sum is equal to zero.(a+b+c=0)
 #include<iostream>
 #include<vector>
 #include<set>

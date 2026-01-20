@@ -31,7 +31,7 @@ vector<int> missingrepeating(vector<vector<int>>&arr)
 }
 int main()
 {
-    vector<vector<int>>arr={{9,1,7},{8,9,2},{3,4,6}};
+    vector<vector<int>>arr={{9,1,7},{8,9,2 },{3,4,6}};
     vector<int>res=missingrepeating(arr);
     if(!arr.empty())
     {

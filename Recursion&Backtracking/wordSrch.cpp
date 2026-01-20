@@ -12,7 +12,7 @@ bool backtrack(vector<vector<char>>&board,const string& word,int i,int j,int ind
     {
         return false;
     }
-    char temp=board[i][j];//stores original char before making
+    char temp=board[i][j];//tempoarily stores original char before making
     board[i][j]='#';//marks as visited
     bool found=backtrack(board,word,i-1,j,index+1)||//finds upward
                 backtrack(board,word,i+1,j,index+1)||//finds downward
