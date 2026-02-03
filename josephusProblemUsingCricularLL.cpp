@@ -86,13 +86,13 @@ class CircularLL
 };
 int main()
 {
-    CircularLL cll;
+    CircularLL CLL;
     int n;
     cout<<"Enter number of warriors: ";
     cin>>n;
-    cll.Insert(1,n);
+    CLL.Insert(1,n);
     cout<<"Ready Warriors....."<<endl;
-    cll.displayLL(n);
-    cll.Execute(n,n);
+    CLL.displayLL(n);
+    CLL.Execute(n,n);
     return 0;
 }
