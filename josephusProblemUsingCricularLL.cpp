@@ -1,4 +1,4 @@
-//This program uses circular linked list to solve josephus problemq1q
+//This program uses circular linked list to solve josephus problem
 #include<iostream>
 using namespace std;
 class Node
@@ -34,7 +34,7 @@ class CircularLL
             {
                 tail->next=newNode;
                 tail=newNode;
-                tail->next=head;
+                tail->next=head;// ensure circular format
             }
         }
     }
@@ -57,9 +57,9 @@ class CircularLL
         cout<<"War Begins....."<<endl;
         while(count>1)
         {
-            if(current->data==0)
+            if(current->data==0)//is the warrior is already dead
             {
-                while(current->data==0)
+                while(current->data==0) // pass the sword untill alive warrior met
                 {
                     current=current->next;
                 }
@@ -72,7 +72,7 @@ class CircularLL
                 {
                     target=target->next;
                 }
-                target->data=0;
+                target->data=0;// warrior killed
                 displayLL(n);
                 count--;
                 current=target->next;
