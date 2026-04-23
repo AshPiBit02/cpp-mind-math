@@ -3,11 +3,8 @@
 using namespace std;
 
 int ways(int n){
-    if(n==1){
-        return 1;
-    }
-    else if(n==2){
-        return 2;
+    if(1==n || 2==n){
+        return n;
     }
     return ways(n-1)+ways(n-2);
 }
