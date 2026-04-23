@@ -4,23 +4,28 @@
 #include<cmath>
 #include<vector>
 #include<algorithm>
+#include<climits>
 using namespace std;
 
-int frogJump(int i,vector<int>&heights){
+int frogJump(int i,vector<int>&heights,vector<int>&dp){
     if(i==0){
         return 0;
     }
-    int left=frogJump(i-1,heights)+abs(heights[i]-heights[i-1]);
-    int right=INT_MAX;
-    if(i<1){
-        right=frogJump(i-2,heights)+abs(heights[i]-heights[i-2]);
+    if(dp[i]!=-1){
+        return dp[i];
     }
-    return min(left,right);
+    int left=frogJump(i-1,heights,dp)+abs(heights[i]-heights[i-1]);
+    int right=INT_MAX;
+    if(i>1){
+        right=frogJump(i-2,heights,dp)+abs(heights[i]-heights[i-2]);
+    }
+    return dp[i]=min(left,right);
 }
 
 int main(){
-    vector<int>heights={10,30,40,20};
+    vector<int>heights={10,30,40,20,25,45};
     int n=heights.size();
-    cout<<"Result: "<<frogJump(n-1,heights);
+    vector<int>dp(n,-1);
+    cout<<"Result: "<<frogJump(n-1,heights,dp);
     return 0;
 }
