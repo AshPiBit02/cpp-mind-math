@@ -10,11 +10,17 @@ int frogJump(int i,vector<int>&heights){
     if(i==0){
         return 0;
     }
-    return min(frogJump(i-1,heights)+abs(heights[i]-heights[i-1]),frogJump(i-2,heights)+abs(heights[i]-heights[i-2]));
+    int left=frogJump(i-1,heights)+abs(heights[i]-heights[i-1]);
+    int right=INT_MAX;
+    if(i<1){
+        right=frogJump(i-2,heights)+abs(heights[i]-heights[i-2]);
+    }
+    return min(left,right);
 }
 
 int main(){
     vector<int>heights={10,30,40,20};
     int n=heights.size();
     cout<<"Result: "<<frogJump(n-1,heights);
+    return 0;
 }
