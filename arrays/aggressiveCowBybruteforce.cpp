@@ -22,7 +22,7 @@ int get_distance(vector<int>&arr,int n,int  no_cows)
     int start=1,end=arr[n-1]-arr[0],ans=-1;//start is min and end is max position
     while(start<=end)
     {
-        int mid=start+(end-start)/2;
+        int mid=start+(end-start)/2;//
         if(ispossible(arr,mid,no_cows,n))
         {
             ans=mid;

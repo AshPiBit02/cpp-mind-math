@@ -44,8 +44,6 @@ public:
     {
         head = reverseKGroupUtil(head, k);
     }
-
-private:
     Node* reverseKGroupUtil(Node* curr, int k)
     {
         Node* temp = curr;
@@ -65,10 +63,10 @@ private:
         count = 0;
         while (count < k)
         {
-            Node* next = node->next;
-            node->next = prev;
-            prev = node;
-            node = next;
+            Node* next = node->next;// Save next
+            node->next = prev;//point current node to head of reversed rest
+            prev = node;//move prev forward
+            node = next;//move current forward
             count++;
         }
 

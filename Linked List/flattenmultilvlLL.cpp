@@ -14,37 +14,45 @@ class Node
 };
 class DLL
 {
-    Node* flatten(Node* head)
+   Node* flatten(Node* head)
+{
+    if(head == nullptr)
     {
-        if(head==nullptr)
-        {
-            return head;
-        }
-        Node* curr=head;
-        while(curr!=nullptr)
-        {
-            if(curr->child!=nullptr)
-            {
-                //flatten the child node
-                Node* temp=curr->next;
-                curr->next=flatten(curr->child);
-                curr->next->prev=curr;//doubly link between child and parent
-                curr->child=nullptr;
-                //find tail
-                while(curr->next!=nullptr)
-                {
-                    curr=curr->next;
-                }
-                if(temp!=nullptr)
-                {
-                    curr->next=temp;//doubly link with the child's last node with it's parent next node;
-                    temp->prev=curr;
-                }
-            }
-            curr=curr->next;//if no child 
-        }
         return head;
     }
+
+    Node* curr = head;
+
+    while(curr != nullptr)
+    {
+        if(curr->child != nullptr)
+        {
+            Node* temp=curr->next;
+            //Flatten the child list
+            Node* childHead=flatten(curr->child);
+            // Attach child
+            curr->next=childHead;
+            childHead->prev=curr;
+            curr->child=nullptr;
+            //Find tail of child list
+            Node* tail=childHead;
+            while(tail->next!=nullptr)
+            {
+                tail=tail->next;
+            }
+            // Reattach the saved next
+            if(temp!=nullptr)
+            {
+                tail->next=temp;
+                temp->prev=tail;
+            }
+        }
+        curr=curr->next;
+    }
+
+    return head;
+}
+
 };
 int main()
 {

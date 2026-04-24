@@ -1,9 +1,9 @@
 // A Frog is at 0th stair and wants to reach the (n-1)th stair. The frog can jump to either the (i+1)th or (i+2)th stair from the ith stair. 
 // However, there is a cost associated with each stair (height[i]). The cost of a jump is |height[i]-height[j]|. find the minimum total cost.
 #include<iostream>
-#include<cmath>
+#include<cmath> //contains abs()
 #include<vector>
-#include<algorithm>
+#include<algorithm> //contains min()
 #include<climits>
 using namespace std;
 

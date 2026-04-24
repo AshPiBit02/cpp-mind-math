@@ -4,9 +4,9 @@
 using namespace std;
 void merge(vector<int>&arr,int start,int mid,int end)
 {
-    vector<int>temp;
+    vector<int>temp;//to store merged array
     int i=start,j=mid+1;
-    while(i<=mid && j<=end)
+    while(i<=mid && j<=end)//i points to left half and j points to right half
     {
         if(arr[i]<arr[j])
         {
@@ -17,15 +17,15 @@ void merge(vector<int>&arr,int start,int mid,int end)
             temp.push_back(arr[j++]);
         }
     }
-    while(i<=mid)
+    while(i<=mid)//if any element left in left half
     {
         temp.push_back(arr[i++]);
     }
-    while(j<=end)
+    while(j<=end)//if any element left in right half
     {
         temp.push_back(arr[j++]);
     }
-    for(int idx=0;idx<temp.size();idx++)
+    for(int idx=0;idx<temp.size();idx++)//copying the merged array
     {
         arr[idx+start]=temp[idx];
     }
@@ -35,9 +35,9 @@ void mergesort(vector<int>&arr,int start,int end)
     if(start<end)
     {
         int mid=start+(end-start)/2;
-        mergesort(arr,start,mid);//left half
-        mergesort(arr,mid+1,end);//right half
-        merge(arr,start,mid,end);
+        mergesort(arr,start,mid);//dividing left half recursively
+        mergesort(arr,mid+1,end);//dividing right half recursively
+        merge(arr,start,mid,end);//merging both halves
     }
 }
 int main()

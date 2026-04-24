@@ -82,7 +82,8 @@ class CLL
             cout<<"List is empty"<<endl;
             return;
         }
-        Node* temp=tail;
+        Node* temp=head;
+        int val=tail->data;
         if(head==tail)
         {
             head=tail=nullptr;
@@ -93,11 +94,15 @@ class CLL
            {
             temp=temp->next;
            } 
+           delete tail;
            tail=temp;
            tail->next=head;
         }
-        cout<<temp->data<<" popped from back"<<endl;
-        delete temp;
+        cout<<val<<" popped from back"<<endl;
     }
 
 };
+int main()
+{
+    return 0;
+}
